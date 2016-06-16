@@ -152,7 +152,7 @@
 	 * @return {Boolean}
 	 */
 	function isCollapsed(sel) {
-		return (sel || win.getSelection()).isCollapsed;
+		return (sel || getSelection()).isCollapsed;
 	}
 
 	/**
@@ -161,7 +161,7 @@
 	 * @see  http://stackoverflow.com/questions/8513368/collapse-selection-to-start-of-selection-not-div
 	 */
 	function collapseStart(sel) {
-		(sel || win.getSelection()).collapseToStart();
+		(sel || getSelection()).collapseToStart();
 	}
 
 	/**
@@ -169,7 +169,7 @@
 	 * @param {Selection} sel
 	 */
 	function collapseEnd(sel) {
-		(sel || win.getSelection()).collapseToEnd();
+		(sel || getSelection()).collapseToEnd();
 	}
 
 	/**
