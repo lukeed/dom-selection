@@ -1,10 +1,7 @@
 'use strict';
-module.exports = function (str, opts) {
-	if (typeof str !== 'string') {
-		throw new TypeError('Expected a string');
-	}
 
-	opts = opts || {};
+var nextNode = require('next-node');
 
-	return str + ' & ' + (opts.postfix || 'rainbows');
-};
+var win = window;
+var doc = document;
+

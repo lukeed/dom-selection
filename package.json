@@ -21,7 +21,9 @@
   "keywords": [
     ""
   ],
-  "dependencies": {},
+  "dependencies": {
+    "next-node": "^1.0.0"
+  },
   "devDependencies": {
     "ava": "^0.15.1",
     "nyc": "^6.4.0",
