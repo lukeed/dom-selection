@@ -30,6 +30,37 @@ function setRange(saved) {
 }
 
 /**
+ * Get a Selection Rectangle
+ * @see http://stackoverflow.com/questions/12603397/calculate-width-height-of-the-selected-text-javascript
+ * @see http://stackoverflow.com/questions/6846230/coordinates-of-selected-text-in-browser-page
+ * @param {Selection} sel
+ * @return {Object|Boolean}
+ */
+function getRect(sel) {
+	sel = sel || win.getSelection();
+	if (!sel.rangeCount) return false;
+
+	var range = sel.getRangeAt(0).cloneRange();
+
+	// on Webkit 'range.getBoundingClientRect()' sometimes return 0/0/0/0 - but 'range.getClientRects()' works
+	var rects = range.getClientRects ? range.getClientRects() : [];
+	for (var i = 0; i < rects.length; ++i) {
+		var rect = rects[i];
+		if (rect.left && rect.top && rect.right && rect.bottom) {
+			return {
+				// Modern browsers return floating-point numbers
+				left: parseInt(rect.left),
+				top: parseInt(rect.top),
+				width: parseInt(rect.right - rect.left),
+				height: parseInt(rect.bottom - rect.top)
+			};
+		}
+	}
+
+	return false;
+}
+
+/**
  * Is there a Selection active?
  * @param {Selection} sel
  * @return {Boolean}
