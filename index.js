@@ -28,3 +28,29 @@ function setRange(saved) {
 	sel.removeAllRanges();
 	sel.addRange(saved);
 }
+
+/**
+ * Is there a Selection active?
+ * @param {Selection} sel
+ * @return {Boolean}
+ */
+function isCollapsed(sel) {
+	return (sel || win.getSelection()).isCollapsed;
+}
+
+/**
+ * Collapse a Selection to its beginning.
+ * @param {Selection} sel
+ * @see  http://stackoverflow.com/questions/8513368/collapse-selection-to-start-of-selection-not-div
+ */
+function collapseStart(sel) {
+	(sel || win.getSelection()).collapseToStart();
+}
+
+/**
+ * Collapse a Selection to its endpoint.
+ * @param {Selection} sel
+ */
+function collapseEnd(sel) {
+	(sel || win.getSelection()).collapseToEnd();
+}
