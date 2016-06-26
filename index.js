@@ -98,7 +98,7 @@ function getNodes(range) {
  * @param {Selection} sel
  * @return {String}
  */
-function getHtml(sel) {
+function getHTML(sel) {
 	sel = sel || win.getSelection();
 	if (!sel.rangeCount || sel.isCollapsed) return null;
 
