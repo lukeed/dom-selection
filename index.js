@@ -61,6 +61,38 @@ function getRect(sel) {
 }
 
 /**
+ * Get all Nodes within a selected Range.
+ * @see http://stackoverflow.com/questions/7781963/js-get-array-of-all-selected-nodes-in-contenteditable-div
+ * @param  {Range} range
+ * @return {Array}
+ */
+function getNodes(range) {
+	range = range || getRange();
+	if (!range) return [];
+
+	var node = range.startContainer;
+	var endNode = range.endContainer;
+
+	// Special case for a range that is contained within a single node
+	if (node == endNode) return [node];
+
+	// Iterate nodes until we hit the end container
+	var nodes = [];
+	while (node && node != endNode) {
+		nodes.push(node = nextNode(node));
+	}
+
+	// Add partially selected nodes at the start of the range
+	node = range.startContainer;
+	while (node && node != range.commonAncestorContainer) {
+		nodes.unshift(node);
+		node = node.parentNode;
+	}
+
+	return nodes;
+}
+
+/**
  * Is there a Selection active?
  * @param {Selection} sel
  * @return {Boolean}
