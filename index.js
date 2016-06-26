@@ -93,6 +93,26 @@ function getNodes(range) {
 }
 
 /**
+ * Get the inner HTML content of a selection.
+ * @see http://stackoverflow.com/questions/4652734/return-html-from-a-user-selected-text/4652824#4652824
+ * @param {Selection} sel
+ * @return {String}
+ */
+function getHtml(sel) {
+	sel = sel || win.getSelection();
+	if (!sel.rangeCount || sel.isCollapsed) return null;
+
+	var len = sel.rangeCount;
+	var container = doc.createElement('div');
+
+	for (var i = 0; i < len; ++i) {
+		container.appendChild(sel.getRangeAt(i).cloneContents());
+	}
+
+	return container.innerHTML;
+};
+
+/**
  * Is there a Selection active?
  * @param {Selection} sel
  * @return {Boolean}
