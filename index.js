@@ -148,3 +148,18 @@ function isWithin(container, sel) {
 	sel = sel || win.getSelection();
 	return container.contains(sel.anchorNode) && container.contains(sel.focusNode);
 }
+
+/**
+ * Force/Restrict a Selection to the container & its children only.
+ * @param {Node} container
+ * @param {Selection} sel
+ */
+function forceWithin(container, sel) {
+	sel = sel || win.getSelection();
+	var range = doc.createRange();
+
+	range.selectNodeContents(container);
+	range.collapse(false);
+	sel.removeAllRanges();
+	sel.addRange(range);
+}
