@@ -137,3 +137,14 @@ function collapseStart(sel) {
 function collapseEnd(sel) {
 	(sel || win.getSelection()).collapseToEnd();
 }
+
+/**
+ * Is the Selection within given container Node?
+ * @param {Node} container  The container node
+ * @param {Selection} sel
+ * @return {Boolean}
+ */
+function isWithin(container, sel) {
+	sel = sel || win.getSelection();
+	return container.contains(sel.anchorNode) && container.contains(sel.focusNode);
+}
