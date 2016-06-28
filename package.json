@@ -19,7 +19,12 @@
     "index.js"
   ],
   "keywords": [
-    ""
+    "caret",
+    "container",
+    "DOM",
+    "nodes",
+    "range",
+    "selection"
   ],
   "dependencies": {
     "next-node": "^1.0.0"
