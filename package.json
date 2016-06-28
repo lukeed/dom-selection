@@ -1,7 +1,7 @@
 {
   "name": "dom-selection",
   "version": "0.0.0",
-  "description": "My grand module",
+  "description": "A lightweight, cross-browser library for DOM selecitons and ranges. IE9+",
   "license": "MIT",
   "repository": "lukeed/dom-selection",
   "author": {
