@@ -163,3 +163,16 @@ function forceWithin(container, sel) {
 	sel.removeAllRanges();
 	sel.addRange(range);
 }
+
+module.exports = {
+	getRange: getRange,
+	setRange: setRange,
+	getRect: getRect,
+	getNodes: getNodes,
+	getHTML: getHTML,
+	isCollapsed: isCollapsed,
+	collapseStart: collapseStart,
+	collapseEnd: collapseEnd,
+	isWithin: isWithin,
+	forceWithin: forceWithin
+};
