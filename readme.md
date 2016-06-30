@@ -1,6 +1,6 @@
 # dom-selection [![Build Status](https://travis-ci.org/lukeed/dom-selection.svg?branch=master)](https://travis-ci.org/lukeed/dom-selection)
 
-> A lightweight, cross-browser library for DOM selecitons and ranges. IE9+
+> A lightweight, cross-browser library for DOM selections and ranges. IE9+
 
 
 ## Install
