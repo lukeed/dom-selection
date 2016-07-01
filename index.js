@@ -20,11 +20,12 @@ function getRange(sel) {
  * Restore a Selection Range
  * @see http://stackoverflow.com/questions/13949059/persisting-the-changes-of-range-objects-after-selection-in-html/13950376#13950376
  * @param {Range} saved
+ * @param {Selection} sel
  */
-function setRange(saved) {
+function setRange(saved, sel) {
 	if (!saved) return;
-	// new selection
-	var sel = win.getSelection();
+	// will make new selection, if unset
+	sel = sel || win.getSelection();
 	sel.removeAllRanges();
 	sel.addRange(saved);
 }
@@ -155,13 +156,10 @@ function isWithin(container, sel) {
  * @param {Selection} sel
  */
 function forceWithin(container, sel) {
-	sel = sel || win.getSelection();
 	var range = doc.createRange();
-
 	range.selectNodeContents(container);
 	range.collapse(false);
-	sel.removeAllRanges();
-	sel.addRange(range);
+	setRange(range, sel);
 }
 
 module.exports = {
