@@ -162,6 +162,32 @@ function forceWithin(container, sel) {
 	setRange(range, sel);
 }
 
+/**
+ * Expand the Selection Range to include whatever the Caret is within.
+ * @see http://stackoverflow.com/questions/11247737/how-can-i-get-the-word-that-the-caret-is-upon-inside-a-contenteditable-div
+ * @see http://stackoverflow.com/questions/15157435/get-last-character-before-caret-position-in-javascript
+ * @param  {Integer} preceding Amount of characters to include.
+ * @param  {Integer} following Amount of characters to include.
+ * @param  {Selection} sel
+ */
+function expandCaret(preceding, following, sel) {
+	sel = sel || win.getSelection();
+	if (sel.modify) {
+		for (var i = 0; i < preceding; ++i) {
+			sel.modify('extend', 'backward', 'character');
+		}
+		for (var i = 0; i < following; ++i) {
+			sel.modify('extend', 'forward', 'character');
+		}
+	} else {
+		// not so easy if the steps would cover multiple nodes ...
+		var range = getRange(sel);
+		range.setStart(range.startContainer, range.startOffset - preceding);
+		range.setEnd(range.endContainer, range.endOffset + following);
+		setRange(range, sel);
+	}
+}
+
 module.exports = {
 	getRange: getRange,
 	setRange: setRange,
@@ -172,5 +198,6 @@ module.exports = {
 	collapseStart: collapseStart,
 	collapseEnd: collapseEnd,
 	isWithin: isWithin,
-	forceWithin: forceWithin
+	forceWithin: forceWithin,
+	expandCaret: expandCaret
 };
