@@ -9,10 +9,25 @@
 }(this, function () {
 	'use strict';
 
-var nextNode = require('next-node');
-
 	var win = window;
 	var doc = document;
+
+	/**
+	 * Get the next Node within a container; without leaving container.
+	 * @see https://github.com/lukeed/next-node
+	 * @param  {Node} node      The initial node.
+	 * @param  {Node} container The container.
+	 * @return {Node}           The next node.
+	 */
+	function nextNode(node, container) {
+		if (node.firstChild) return node.firstChild;
+		while (node) {
+			// do not walk out of the container
+			if (node == container) return null;
+			if (node.nextSibling) return node.nextSibling;
+			node = node.parentNode;
+		}
+	};
 
 	/**
 	 * Get a Selection's Range
