@@ -11,6 +11,7 @@
 
 	var win = window;
 	var doc = document;
+	var ver = '0.1.0';
 
 	/**
 	 * Get the next Node within a container; without leaving container.
@@ -212,17 +213,18 @@
 		}
 	}
 
-module.exports = {
-	getRange: getRange,
-	setRange: setRange,
-	getRect: getRect,
-	getNodes: getNodes,
-	getHTML: getHTML,
-	isCollapsed: isCollapsed,
-	collapseStart: collapseStart,
-	collapseEnd: collapseEnd,
-	isWithin: isWithin,
-	forceWithin: forceWithin,
-	expandCaret: expandCaret
-};
+	return {
+		getRange: getRange,
+		setRange: setRange,
+		getRect: getRect,
+		getNodes: getNodes,
+		getHTML: getHTML,
+		isCollapsed: isCollapsed,
+		collapseStart: collapseStart,
+		collapseEnd: collapseEnd,
+		isWithin: isWithin,
+		forceWithin: forceWithin,
+		expandCaret: expandCaret,
+		version: ver,
+	};
 }));
