@@ -13,8 +13,8 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "build": "browserify index.js > dist/dom-selection.js",
-    "minify": "browserify -g uglifyify index.js | uglifyjs -c > dist/dom-selection.min.js",
+    "build": "cp index.js dist/dom-selection.js",
+    "minify": "uglifyjs dist/dom-selection.js -c > dist/dom-selection.min.js",
     "release": "npm run build && npm run minify",
     "test": "xo && nyc ava"
   },
