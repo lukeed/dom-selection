@@ -30,15 +30,11 @@
     "range",
     "selection"
   ],
-  "dependencies": {
-    "next-node": "^1.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "ava": "^0.15.1",
-    "browserify": "^13.0.1",
     "nyc": "^6.4.0",
     "uglify-js": "^2.7.0",
-    "uglifyify": "^3.0.2",
     "xo": "^0.15.0"
   }
 }
