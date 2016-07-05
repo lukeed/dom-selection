@@ -13,13 +13,11 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "build": "cp index.js dist/dom-selection.js",
-    "minify": "uglifyjs dist/dom-selection.js -c > dist/dom-selection.min.js",
-    "release": "npm run build && npm run minify",
+    "build": "uglifyjs dom-selection.js -c > dom-selection.min.js",
     "test": "xo && nyc ava"
   },
   "files": [
-    "index.js"
+    "*.js"
   ],
   "keywords": [
     "caret",
