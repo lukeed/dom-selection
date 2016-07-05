@@ -19,8 +19,7 @@
     "test": "xo && nyc ava"
   },
   "files": [
-    "index.js",
-    "dist"
+    "index.js"
   ],
   "keywords": [
     "caret",
