@@ -206,6 +206,18 @@
 		}
 	}
 
+	/**
+	 * Get the full word that the Caret is within.
+	 * @see http://stackoverflow.com/questions/11247737/how-can-i-get-the-word-that-the-caret-is-upon-inside-a-contenteditable-div
+	 * @param  {Selection} sel
+	 * @return {String}
+	 */
+	function getCurrentWord(sel) {
+		sel = sel || win.getSelection();
+		expandToWord(sel);
+		return sel.toString(); // range?
+	}
+
 	return {
 		getRange: getRange,
 		setRange: setRange,
@@ -218,6 +230,7 @@
 		isWithin: isWithin,
 		forceWithin: forceWithin,
 		expandToWord: expandToWord,
+		getCurrentWord: getCurrentWord,
 		version: ver,
 	};
 }));
