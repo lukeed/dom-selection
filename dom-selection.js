@@ -214,8 +214,12 @@
 	 */
 	function getCurrentWord(sel) {
 		sel = sel || win.getSelection();
+		var rng = getRange(sel);
 		expandToWord(sel);
-		return sel.toString(); // range?
+		var str = sel.toString(); // range?
+		// Restore selection
+		setRange(rng);
+		return str;
 	}
 
 	return {
@@ -229,6 +233,7 @@
 		collapseEnd: collapseEnd,
 		isWithin: isWithin,
 		forceWithin: forceWithin,
+		// snapToWord: snapToWord,
 		expandToWord: expandToWord,
 		getCurrentWord: getCurrentWord,
 		version: ver,
