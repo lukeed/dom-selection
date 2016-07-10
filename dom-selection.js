@@ -212,7 +212,7 @@
 	 * @param  {Selection} sel
 	 * @return {String}
 	 */
-	function getCurrentWord(sel) {
+	function getCaretWord(sel) {
 		sel = sel || win.getSelection();
 		var rng = getRange(sel);
 		expandToWord(sel);
@@ -235,7 +235,7 @@
 		forceWithin: forceWithin,
 		// snapToWord: snapToWord,
 		expandToWord: expandToWord,
-		getCurrentWord: getCurrentWord,
+		getCaretWord: getCaretWord,
 		version: ver,
 	};
 }));
