@@ -222,6 +222,25 @@
 		return str;
 	}
 
+	/**
+	 * Detect the direction of the Selection
+	 * @param  {Selection} sel
+	 * @return {Boolean}
+	 */
+	function isBackwards(sel) {
+		sel = sel || win.getSelection();
+		if (isCollapsed(sel)) return;
+
+		// Detect if selection is backwards
+		var range = doc.createRange();
+		range.setStart(sel.anchorNode, sel.anchorOffset);
+		range.setEnd(sel.focusNode, sel.focusOffset);
+		range.detach();
+
+		// if `collapsed` then it's backwards
+		return range.collapsed;
+	}
+
 	return {
 		getRange: getRange,
 		setRange: setRange,
@@ -229,6 +248,7 @@
 		getNodes: getNodes,
 		getHTML: getHTML,
 		isCollapsed: isCollapsed,
+		isBackwards: isBackwards,
 		collapseStart: collapseStart,
 		collapseEnd: collapseEnd,
 		isWithin: isWithin,
