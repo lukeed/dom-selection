@@ -241,6 +241,28 @@
 		return range.collapsed;
 	}
 
+	/**
+	 * Force the Selection to include entire/expanded Words.
+	 * @see  http://stackoverflow.com/questions/7380190/select-whole-word-with-getselection
+	 * @param  {Selection} sel
+	 */
+	function forceInclude(sel) {
+		sel = sel || win.getSelection();
+		if (isCollapsed(sel)) return;
+
+		var dir = ['forward', 'backward'];
+		isBackwards(sel) && dir.reverse();
+
+		// modify() works on the focus of the selection
+		sel.collapse(sel.anchorNode, sel.anchorOffset);
+
+		sel.modify('move', dir[0], 'character');
+		sel.modify('move', dir[1], 'word');
+		sel.extend(sel.focusNode, sel.focusOffset);
+		sel.modify('extend', dir[1], 'character');
+		sel.modify('extend', dir[0], 'word');
+	}
+
 	return {
 		getRange: getRange,
 		setRange: setRange,
@@ -253,9 +275,9 @@
 		collapseEnd: collapseEnd,
 		isWithin: isWithin,
 		forceWithin: forceWithin,
-		// snapToWord: snapToWord,
 		expandToWord: expandToWord,
 		getCaretWord: getCaretWord,
+		forceInclude: forceInclude,
 		version: ver,
 	};
 }));
