@@ -34,5 +34,13 @@
     "nyc": "^6.4.0",
     "uglify-js": "^2.7.0",
     "xo": "^0.15.0"
+  },
+  "xo": {
+    "envs": ["browser", "node", "amd"],
+    "rules": {
+      "no-unused-expressions": 1,
+      "wrap-iife": 0,
+      "curly": 1
+    }
   }
 }
