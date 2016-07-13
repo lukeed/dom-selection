@@ -24,11 +24,11 @@
 		if (node.firstChild) return node.firstChild;
 		while (node) {
 			// do not walk out of the container
-			if (node == container) return null;
+			if (node === container) return null;
 			if (node.nextSibling) return node.nextSibling;
 			node = node.parentNode;
 		}
-	};
+	}
 
 	/**
 	 * Get a Selection's Range
@@ -75,10 +75,10 @@
 			if (rect.left && rect.top && rect.right && rect.bottom) {
 				return {
 					// Modern browsers return floating-point numbers
-					left: parseInt(rect.left),
-					top: parseInt(rect.top),
-					width: parseInt(rect.right - rect.left),
-					height: parseInt(rect.bottom - rect.top)
+					left: parseInt(rect.left, 10),
+					top: parseInt(rect.top, 10),
+					width: parseInt(rect.right - rect.left, 10),
+					height: parseInt(rect.bottom - rect.top, 10)
 				};
 			}
 		}
@@ -100,17 +100,17 @@
 		var endNode = range.endContainer;
 
 		// Special case for a range that is contained within a single node
-		if (node == endNode) return [node];
+		if (node === endNode) return [node];
 
 		// Iterate nodes until we hit the end container
 		var nodes = [];
-		while (node && node != endNode) {
+		while (node && node !== endNode) {
 			nodes.push(node = nextNode(node));
 		}
 
 		// Add partially selected nodes at the start of the range
 		node = range.startContainer;
-		while (node && node != range.commonAncestorContainer) {
+		while (node && node !== range.commonAncestorContainer) {
 			nodes.unshift(node);
 			node = node.parentNode;
 		}
@@ -136,7 +136,7 @@
 		}
 
 		return container.innerHTML;
-	};
+	}
 
 	/**
 	 * Is there a Selection active?
@@ -195,7 +195,6 @@
 	function expandToWord(sel) {
 		sel = sel || win.getSelection();
 		if (sel.modify) {
-			var range = getRange(sel);
 			collapseStart(sel);
 			sel.modify('move', 'backward', 'word');
 			sel.modify('extend', 'forward', 'word');
@@ -278,6 +277,6 @@
 		expandToWord: expandToWord,
 		getCaretWord: getCaretWord,
 		forceInclude: forceInclude,
-		version: ver,
+		version: ver
 	};
 }));
