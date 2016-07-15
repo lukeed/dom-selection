@@ -58,16 +58,10 @@ Get a `Selection`'s rectangular bounds.<br>
 Returns: `Object` or `false`
 
 
-### getNodes([range])
+### getNodes([sel])
 
-Get all `Node`s within a `Range`.<br>
+Get all `Node`s within a `Selection`.<br>
 Returns: `Array`
-
-> #### range
-> Type: `Range`<br>
-> Default: The current `Selection`'s range.
-
-> The `Range` to read.
 
 
 ### getHTML([sel])

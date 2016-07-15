@@ -87,13 +87,13 @@
 	}
 
 	/**
-	 * Get all Nodes within a selected Range.
+	 * Get all Nodes within a Selection.
 	 * @see http://stackoverflow.com/questions/7781963/js-get-array-of-all-selected-nodes-in-contenteditable-div
-	 * @param  {Range} range
+	 * @param  {Selection} sel
 	 * @return {Array}
 	 */
-	function getNodes(range) {
-		range = range || getRange();
+	function getNodes(sel) {
+		var range = getRange(sel);
 		if (!range) return [];
 
 		var node = range.startContainer;
