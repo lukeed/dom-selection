@@ -7,16 +7,22 @@
 
 ```
 $ npm install --save dom-selection
+# or
+$ bower install --save dom-selection
 ```
+
+You may also [download the repo](https://github.com/lukeed/dom-selection/archive/master.zip) directly.
 
 
 ## Usage
 
-NPM: `npm install dom-selection`,<br>
-Bower: `bower install dom-selection`,<br>
-or [Download](https://github.com/lukeed/dom-selection/archive/master.zip)
+This package is available as a AMD and a CommonJS module, so you may import it directly into your JavaScript:
 
-Then insert `dom-selection.min.js` into your html:
+```js
+const domSel = require('dom-selection');
+```
+
+Or you may import it directly into your HTML markup:
 
 ```html
 <script src="dom-selection.min.js"></script>
@@ -24,12 +30,6 @@ Then insert `dom-selection.min.js` into your html:
   // the 'DOMSelection' global is now available
   var range = DOMSelection.getRange();
 </script>
-```
-
-Or import it in your JavaScript:
-
-```js
-const domsel = require('dom-selection');
 ```
 
 ## API
