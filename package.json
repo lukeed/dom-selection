@@ -1,6 +1,6 @@
 {
   "name": "dom-selection",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A lightweight, cross-browser library for DOM selections and ranges. IE9+",
   "license": "MIT",
   "repository": "lukeed/dom-selection",
