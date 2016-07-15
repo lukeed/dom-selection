@@ -34,7 +34,7 @@ const domsel = require('dom-selection');
 
 ## API
 
-All instances of the parameter `[sel]` indicates that an existing `Selection` object may be used. By default, this parameter will use the current, active `Selection`, if there is one.
+The parameter `[sel]` indicates that an existing `Selection` object may be provided. By default, the current, active `Selection` will be used if available.
 
 ### getRange([sel])
 
