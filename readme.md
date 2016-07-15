@@ -46,10 +46,10 @@ Returns: `Range`
 
 Restore a `Range` to a `Selection`.
 
-#### saved
-Type: `Range`
+> #### saved
+> Type: `Range`
 
-The `Range` to apply.
+> The `Range` to apply.
 
 
 ### getRect([sel])
@@ -63,11 +63,11 @@ Returns: `Object` or `false`
 Get all `Node`s within a `Range`.<br>
 Returns: `Array`
 
-#### range
-Type: `Range`<br>
-Default: The current `Selection`'s range.
+> #### range
+> Type: `Range`<br>
+> Default: The current `Selection`'s range.
 
-The `Range` to read.
+> The `Range` to read.
 
 
 ### getHTML([sel])
@@ -103,20 +103,20 @@ Returns: `Boolean`
 Is the `Selection` within given container `Node`?<br>
 Returns: `Boolean`
 
-#### container
-Type: `Node`
+> #### container
+> Type: `Node`
 
-The DOM element to check.
+> The DOM element to check.
 
 
 ### forceWithin(container, [sel])
 
 Force/Restrict a `Selection` to the container & its children only.
 
-#### container
-Type: `Node`
+> #### container
+> Type: `Node`
 
-The DOM element that should be the boundary.
+> The DOM element that should be the boundary.
 
 
 ### expandToWord([sel])
