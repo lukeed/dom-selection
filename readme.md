@@ -12,8 +12,8 @@ $ npm install --save dom-selection
 
 ## Usage
 
-NPM: `npm install dom-selection`,
-Bower: `bower install dom-selection`,
+NPM: `npm install dom-selection`,<br>
+Bower: `bower install dom-selection`,<br>
 or [Download](https://github.com/lukeed/dom-selection/archive/master.zip)
 
 Then insert `dom-selection.min.js` into your html:
