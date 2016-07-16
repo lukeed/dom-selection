@@ -31,13 +31,21 @@
 	}
 
 	/**
+	 * Get the active `Selection`
+	 * @return {Selection}
+	 */
+	function getSelection() {
+		return win.getSelection() || doc.selection;
+	}
+
+	/**
 	 * Get a Selection's Range
 	 * @see http://stackoverflow.com/questions/13949059/persisting-the-changes-of-range-objects-after-selection-in-html/13950376#13950376
 	 * @param {Selection} sel
 	 * @return {Range|null}
 	 */
 	function getRange(sel) {
-		sel = sel || win.getSelection();
+		sel = sel || getSelection();
 		return sel.rangeCount > 0 ? sel.getRangeAt(0) : null;
 	}
 
@@ -50,7 +58,7 @@
 	function setRange(saved, sel) {
 		if (!saved) return;
 		// will make new selection, if unset
-		sel = sel || win.getSelection();
+		sel = sel || getSelection();
 		sel.removeAllRanges();
 		sel.addRange(saved);
 	}
@@ -63,7 +71,7 @@
 	 * @return {Object|Boolean}
 	 */
 	function getRect(sel) {
-		sel = sel || win.getSelection();
+		sel = sel || getSelection();
 		if (!sel.rangeCount) return false;
 
 		var range = sel.getRangeAt(0).cloneRange();
@@ -125,7 +133,7 @@
 	 * @return {String}
 	 */
 	function getHTML(sel) {
-		sel = sel || win.getSelection();
+		sel = sel || getSelection();
 		if (!sel.rangeCount || sel.isCollapsed) return null;
 
 		var len = sel.rangeCount;
@@ -171,7 +179,7 @@
 	 * @return {Boolean}
 	 */
 	function isWithin(container, sel) {
-		sel = sel || win.getSelection();
+		sel = sel || getSelection();
 		return container.contains(sel.anchorNode) && container.contains(sel.focusNode);
 	}
 
@@ -193,7 +201,7 @@
 	 * @param {Selection} sel
 	 */
 	function expandToWord(sel) {
-		sel = sel || win.getSelection();
+		sel = sel || getSelection();
 		if (sel.modify) {
 			collapseStart(sel);
 			sel.modify('move', 'backward', 'word');
@@ -212,7 +220,7 @@
 	 * @return {String}
 	 */
 	function getCaretWord(sel) {
-		sel = sel || win.getSelection();
+		sel = sel || getSelection();
 		var rng = getRange(sel);
 		expandToWord(sel);
 		var str = sel.toString(); // range?
@@ -227,7 +235,7 @@
 	 * @return {Boolean}
 	 */
 	function isBackwards(sel) {
-		sel = sel || win.getSelection();
+		sel = sel || getSelection();
 		if (isCollapsed(sel)) return;
 
 		// Detect if selection is backwards
@@ -246,7 +254,7 @@
 	 * @param  {Selection} sel
 	 */
 	function snapSelected(sel) {
-		sel = sel || win.getSelection();
+		sel = sel || getSelection();
 		if (isCollapsed(sel)) return;
 
 		var end = sel.focusNode;
@@ -265,6 +273,7 @@
 	}
 
 	return {
+		getSelection: getSelection,
 		getRange: getRange,
 		setRange: setRange,
 		getRect: getRect,
