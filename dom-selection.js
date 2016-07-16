@@ -241,11 +241,11 @@
 	}
 
 	/**
-	 * Force the Selection to include entire/expanded Words.
+	 * Snap the Selection to encompass all partially-selected words.
 	 * @see  http://stackoverflow.com/questions/7380190/select-whole-word-with-getselection
 	 * @param  {Selection} sel
 	 */
-	function forceInclude(sel) {
+	function snapSelected(sel) {
 		sel = sel || win.getSelection();
 		if (isCollapsed(sel)) return;
 
@@ -278,7 +278,7 @@
 		forceWithin: forceWithin,
 		expandToWord: expandToWord,
 		getCaretWord: getCaretWord,
-		forceInclude: forceInclude,
+		snapSelected: snapSelected,
 		version: ver
 	};
 }));
