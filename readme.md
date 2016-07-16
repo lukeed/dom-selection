@@ -124,9 +124,9 @@ Get the full word that the Caret is within.<br>
 Returns: `String`
 
 
-### forceInclude([sel])
+### snapSelected([sel])
 
-Force the `Selection` to include entire words. Can be thought of as "snap to words".
+Force the `Selection` to include entire words. Can be thought of as "snap to words". No partially-selected words will occur.
 
 
 ## License
