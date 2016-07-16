@@ -11,7 +11,7 @@
 
 	var win = window;
 	var doc = document;
-	var ver = '0.2.2';
+	var ver = '0.3.0';
 
 	/**
 	 * Get the next Node within a container; without leaving container.
