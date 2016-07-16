@@ -249,6 +249,8 @@
 		sel = sel || win.getSelection();
 		if (isCollapsed(sel)) return;
 
+		var end = sel.focusNode;
+		var off = sel.focusOffset;
 		var dir = ['forward', 'backward'];
 		isBackwards(sel) && dir.reverse();
 
@@ -257,7 +259,7 @@
 
 		sel.modify('move', dir[0], 'character');
 		sel.modify('move', dir[1], 'word');
-		sel.extend(sel.focusNode, sel.focusOffset);
+		sel.extend(end, off);
 		sel.modify('extend', dir[1], 'character');
 		sel.modify('extend', dir[0], 'word');
 	}
