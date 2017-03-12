@@ -19,7 +19,7 @@ var nextNode = function (node, container) {
 var win = window;
 var doc = document;
 
-var ver = '0.3.2';
+var ver = '0.3.3';
 
 /**
  * Get the active `Selection`

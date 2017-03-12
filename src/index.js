@@ -3,7 +3,7 @@ import nextNode from 'next-node';
 const win = window;
 const doc = document;
 
-export const ver = '0.3.2';
+export const ver = '0.3.3';
 
 /**
  * Get the active `Selection`
