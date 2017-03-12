@@ -1,5 +1,6 @@
 {
   "name": "dom-selection",
+  "amdName": "DOMSelection",
   "version": "0.3.1",
   "description": "A lightweight, cross-browser library for DOM selections and ranges. IE9+",
   "license": "MIT",
@@ -9,17 +10,20 @@
     "email": "luke@lukeed.com",
     "url": "lukeed.com"
   },
+  "main": "dist/dom-selection.js",
+  "umd:main": "dist/dom-selection.min.js",
+  "module": "dist/dom-selection.es.js",
+  "files": [
+    "dist"
+  ],
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "build": "uglifyjs dom-selection.js -c > dom-selection.min.js",
+    "build": "rollup -c",
+    "postbuild": "uglifyjs dist/dom-selection.min.js -cmo dist/dom-selection.min.js",
     "test": "xo"
   },
-  "main": "dom-selection.js",
-  "files": [
-    "*.js"
-  ],
   "keywords": [
     "caret",
     "container",
@@ -28,12 +32,15 @@
     "range",
     "selection"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "next-node": "^1.0.3"
+  },
   "devDependencies": {
     "rollup": "^0.41.5",
     "rollup-plugin-buble": "^0.15.0",
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-uglify": "^1.0.1",
+    "uglify-js": "^2.8.12",
     "xo": "^0.15.0"
   },
   "xo": {
