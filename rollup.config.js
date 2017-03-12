@@ -15,6 +15,6 @@ export default {
 	targets: [
 		{dest: pkg.main, format: 'cjs'},
 		{dest: pkg.module, format: 'es'},
-		{dest: pkg['umd:main'], format: 'iife', moduleName: pkg.amdName},
+		{dest: pkg['umd:main'], format: 'umd', moduleName: pkg.amdName}
 	]
 }
