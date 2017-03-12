@@ -22,7 +22,7 @@
   "scripts": {
     "build": "rollup -c",
     "postbuild": "uglifyjs dist/dom-selection.min.js -cmo dist/dom-selection.min.js",
-    "test": "xo"
+    "test": "xo --env=browser src/*"
   },
   "keywords": [
     "caret",
@@ -44,11 +44,9 @@
     "xo": "^0.15.0"
   },
   "xo": {
-    "envs": ["browser", "node", "amd"],
     "rules": {
       "no-unused-expressions": 1,
-      "wrap-iife": 0,
-      "curly": 1
+      "curly": 0
     }
   }
 }
