@@ -1,22 +1,24 @@
 # dom-selection [![Build Status](https://travis-ci.org/lukeed/dom-selection.svg?branch=master)](https://travis-ci.org/lukeed/dom-selection)
 
-> A lightweight, cross-browser library for DOM selections and ranges. IE9+
+> A lightweight (1kb), cross-browser library for DOM selections and ranges. IE9+
 
 
 ## Install
 
 ```
 $ npm install --save dom-selection
-# or
-$ bower install --save dom-selection
 ```
 
-You may also [download the repo](https://github.com/lukeed/dom-selection/archive/master.zip) directly.
+Multiple module systems are included:
+
+- **CommonJS** (`dist/dom-selection.js`) - This is the `main`/default entry. Use as a regular Node module.
+- **UMD** (`dist/dom-selection.min.js`) - This is exposed as the `umd:main` entry. It's also minified & can be used in the browser.
+- **ES6** (`dist/dom-selection.es.js`) - This is exposed as the `module` entry. Easier for code-splitting bundlers like Rollup or Webpack.
 
 
 ## Usage
 
-This package is available as a AMD and a CommonJS module, so you may import it directly into your JavaScript:
+This package is available as a UMD and a CommonJS module, so you may import it directly into your JavaScript:
 
 ```js
 const domSel = require('dom-selection');
@@ -25,7 +27,7 @@ const domSel = require('dom-selection');
 Or you may import it directly into your HTML markup:
 
 ```html
-<script src="dom-selection.min.js"></script>
+<script src="dist/dom-selection.min.js"></script>
 <script>
   // the 'DOMSelection' global is now available
   var range = DOMSelection.getRange();
